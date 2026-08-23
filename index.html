@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
+
 <meta name="google-site-verification" content="kV15VUDkmfBPu8hhRQlYkFdkfs8DT7F_nBF9MCmGtjI" />
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -11,7 +13,9 @@ content="width=device-width, initial-scale=1.0">
 <title>CreatorSave - Social Media Tools for Creators</title>
 
 <meta name="description"
-content="CreatorSave provides simple and useful social media tools for creators.">
+content="CreatorSave provides simple and useful social media tools for creators. Instagram Reel tools and YouTube thumbnail tools in one place.">
+
+<meta name="robots" content="index, follow">
 
 <style>
 
@@ -33,8 +37,6 @@ width:92%;
 max-width:1100px;
 margin:auto;
 }
-
-/* HEADER */
 
 header{
 height:70px;
@@ -66,9 +68,6 @@ color:#555;
 margin-left:25px;
 font-size:14px;
 }
-
-
-/* HERO */
 
 .hero{
 background:linear-gradient(
@@ -108,9 +107,6 @@ color:#667085;
 max-width:650px;
 margin:auto;
 }
-
-
-/* TOOL */
 
 .tool{
 background:white;
@@ -164,9 +160,6 @@ margin-top:15px;
 color:#5b4de6;
 }
 
-
-/* SECTION */
-
 section{
 padding:75px 0;
 }
@@ -188,13 +181,9 @@ font-size:35px;
 margin-top:8px;
 }
 
-
-/* CARDS */
-
 .cards{
 display:grid;
-grid-template-columns:
-repeat(3,1fr);
+grid-template-columns:repeat(3,1fr);
 gap:20px;
 }
 
@@ -202,6 +191,12 @@ gap:20px;
 padding:25px;
 border:1px solid #e5e7eb;
 border-radius:18px;
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,.06);
 }
 
 .icon{
@@ -211,6 +206,15 @@ margin-bottom:15px;
 
 .card h3{
 margin-bottom:8px;
+}
+
+.card h3 a{
+color:#111827;
+text-decoration:none;
+}
+
+.card h3 a:hover{
+color:#6d5dfc;
 }
 
 .card p{
@@ -224,17 +228,13 @@ font-size:12px;
 font-weight:bold;
 }
 
-
-/* HOW */
-
 .gray{
 background:#f8f9fc;
 }
 
 .steps{
 display:grid;
-grid-template-columns:
-repeat(3,1fr);
+grid-template-columns:repeat(3,1fr);
 gap:30px;
 }
 
@@ -249,9 +249,6 @@ margin:8px 0;
 .step p{
 color:#6b7280;
 }
-
-
-/* FAQ */
 
 .faq{
 max-width:800px;
@@ -273,9 +270,6 @@ color:#6b7280;
 margin-top:10px;
 }
 
-
-/* FOOTER */
-
 footer{
 border-top:1px solid #eee;
 padding:40px 0;
@@ -293,6 +287,10 @@ margin-left:18px;
 font-size:14px;
 }
 
+.footer a:hover{
+color:#6d5dfc;
+}
+
 .copy{
 margin-top:25px;
 padding-top:15px;
@@ -300,9 +298,6 @@ border-top:1px solid #eee;
 font-size:12px;
 color:#888;
 }
-
-
-/* MOBILE */
 
 @media(max-width:700px){
 
@@ -351,14 +346,24 @@ margin-right:15px;
 
 <div class="container nav">
 
-<a class="logo" href="#">
+<a class="logo" href="./">
 Creator<span>Save</span>
 </a>
 
 <nav>
-<a href="#tools">Tools</a>
-<a href="#how">How It Works</a>
-<a href="#faq">FAQ</a>
+
+<a href="#tools">
+Tools
+</a>
+
+<a href="#how">
+How It Works
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
 </nav>
 
 </div>
@@ -433,7 +438,7 @@ Continue
 <p>CREATOR TOOLS</p>
 
 <h2>
-More Tools Coming Soon
+Useful Tools For Creators
 </h2>
 
 </div>
@@ -449,9 +454,11 @@ More Tools Coming Soon
 </div>
 
 <h3>
+
 <a href="instagram-reel-downloader/">
 Instagram Reel Tool
 </a>
+
 </h3>
 
 <p>
@@ -464,6 +471,34 @@ AVAILABLE
 </span>
 
 </div>
+
+
+
+<div class="card">
+
+<div class="icon">
+▶️
+</div>
+
+<h3>
+
+<a href="youtube-thumbnail-downloader/">
+YouTube Thumbnail Tool
+</a>
+
+</h3>
+
+<p>
+Preview and open available
+YouTube video thumbnails.
+</p>
+
+<span>
+AVAILABLE
+</span>
+
+</div>
+
 
 
 <div class="card">
@@ -479,28 +514,6 @@ Instagram Image Tool
 <p>
 Useful image utilities for
 social media creators.
-</p>
-
-<span>
-COMING SOON
-</span>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">
-▶️
-</div>
-
-<h3>
-YouTube Thumbnail Tool
-</h3>
-
-<p>
-Quick thumbnail utilities for
-YouTube creators.
 </p>
 
 <span>
@@ -669,7 +682,7 @@ work on phones, tablets and desktops.
 
 <div>
 
-<a class="logo" href="#">
+<a class="logo" href="./">
 Creator<span>Save</span>
 </a>
 
@@ -682,16 +695,20 @@ Simple tools for social media creators.
 
 <div>
 
-<a href="#">
+<a href="about.html">
 About
 </a>
 
-<a href="#">
+<a href="privacy.html">
 Privacy
 </a>
 
-<a href="#">
+<a href="terms.html">
 Terms
+</a>
+
+<a href="contact.html">
+Contact
 </a>
 
 </div>
@@ -712,7 +729,7 @@ All rights reserved.
 
 <script>
 
-function checkURL(){
+async function checkURL(){
 
 const input =
 document.getElementById("reel");
@@ -732,46 +749,46 @@ return;
 
 }
 
+message.innerText =
+"Checking URL...";
+
 try{
 
-const url =
-new URL(value);
+const response =
+await fetch("/api/validate",{
 
-const host =
-url.hostname
-.replace("www.","")
-.toLowerCase();
+method:"POST",
 
-if(
-host !== "instagram.com" &&
-!host.endsWith(".instagram.com")
-){
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+url:value
+})
+
+});
+
+const data =
+await response.json();
+
+if(!response.ok){
 
 message.innerText =
-"Please enter a valid Instagram URL.";
+data.error ||
+"Unable to validate URL.";
 
 return;
 
 }
 
-if(
-!url.pathname.includes("/reel/")
-){
+message.innerText =
+"✓ " + data.message;
+
+}catch(error){
 
 message.innerText =
-"Please enter an Instagram Reel URL.";
-
-return;
-
-}
-
-message.innerText =
-"URL received. Download processing will be connected next.";
-
-}catch{
-
-message.innerText =
-"Please enter a valid URL.";
+"Unable to connect to the server.";
 
 }
 
@@ -782,4 +799,4 @@ message.innerText =
 
 </body>
 
-  </html>
+</html>
