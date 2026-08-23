@@ -739,6 +739,7 @@ All rights reserved.
 </div>
 
 </footer>
+
 <script>
 async function checkURL() {
 
@@ -755,7 +756,7 @@ async function checkURL() {
 
   button.disabled = true;
   button.innerText = "Processing...";
-  message.innerText = "Getting your Reel...";
+  message.innerHTML = "⏳ Getting your Reel...";
 
   try {
 
@@ -772,11 +773,19 @@ async function checkURL() {
     const data = await response.json();
 
     if (!data.success) {
-      message.innerText = data.error || "Unable to process this Reel.";
+      message.innerHTML =
+        "❌ " + (data.error || "Unable to process this Reel.");
       return;
     }
 
     message.innerHTML = "";
+
+    const title = document.createElement("div");
+    title.innerText = "✅ Reel Ready";
+    title.style.fontWeight = "bold";
+    title.style.marginBottom = "10px";
+
+    message.appendChild(title);
 
     data.links.forEach((link, index) => {
 
@@ -785,29 +794,41 @@ async function checkURL() {
       download.href = link.url;
       download.target = "_blank";
       download.rel = "noopener noreferrer";
-      download.innerText =
-        link.quality
-          ? "Download " + link.quality
-          : "Download Reel " + (index + 1);
 
-      download.style.display = "inline-block";
+      download.innerText =
+        index === 0
+          ? "⬇️ Download Video"
+          : "⬇️ Download Video " + (index + 1);
+
+      download.style.display = "block";
       download.style.marginTop = "10px";
-      download.style.marginRight = "10px";
-      download.style.padding = "12px 18px";
+      download.style.padding = "13px 18px";
       download.style.background = "#6d5dfc";
       download.style.color = "#fff";
       download.style.borderRadius = "10px";
       download.style.textDecoration = "none";
       download.style.fontWeight = "bold";
+      download.style.textAlign = "center";
 
       message.appendChild(download);
 
     });
 
+    const note = document.createElement("div");
+
+    note.innerText =
+      "Download links are temporary. Save the video after opening.";
+
+    note.style.fontSize = "12px";
+    note.style.color = "#777";
+    note.style.marginTop = "12px";
+
+    message.appendChild(note);
+
   } catch (error) {
 
     message.innerText =
-      "Something went wrong. Please try again.";
+      "❌ Something went wrong. Please try again.";
 
   } finally {
 
@@ -817,9 +838,6 @@ async function checkURL() {
   }
 }
 </script>
-
-
-
 
 
 </body>
