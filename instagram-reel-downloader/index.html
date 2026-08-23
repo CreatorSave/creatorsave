@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Instagram Reel Downloader - CreatorSave</title>
+
+<meta name="description"
+content="CreatorSave Instagram Reel URL tool. Use public Reel URLs with content you are authorized to save or use.">
+
+<meta name="robots"
+content="index, follow">
+
+<link rel="canonical"
+href="https://creatorsave.github.io/creatorsave/instagram-reel-downloader/">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+color:#111827;
+background:#fff;
+line-height:1.6;
+}
+
+.container{
+width:92%;
+max-width:1050px;
+margin:auto;
+}
+
+header{
+height:70px;
+border-bottom:1px solid #eee;
+display:flex;
+align-items:center;
+}
+
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+text-decoration:none;
+color:#111827;
+}
+
+.logo span{
+color:#6d5dfc;
+}
+
+.home{
+text-decoration:none;
+color:#555;
+font-size:14px;
+}
+
+.hero{
+background:linear-gradient(
+180deg,
+#f7f6ff,
+#fff
+);
+
+padding:70px 0;
+text-align:center;
+}
+
+.badge{
+display:inline-block;
+background:#eceaff;
+color:#5b4de6;
+padding:7px 14px;
+border-radius:30px;
+font-size:13px;
+font-weight:bold;
+}
+
+h1{
+font-size:clamp(35px,6vw,58px);
+line-height:1.1;
+margin:20px 0;
+}
+
+h1 span{
+color:#6d5dfc;
+}
+
+.hero-text{
+max-width:680px;
+margin:auto;
+color:#667085;
+font-size:17px;
+}
+
+.tool{
+max-width:800px;
+margin:35px auto 0;
+padding:30px;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:22px;
+box-shadow:0 15px 40px rgba(0,0,0,.07);
+text-align:left;
+}
+
+.input{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+input{
+flex:1;
+padding:15px;
+border:1px solid #d1d5db;
+border-radius:12px;
+font-size:15px;
+}
+
+button{
+padding:15px 24px;
+border:0;
+border-radius:12px;
+background:#6d5dfc;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+}
+
+#message{
+margin-top:15px;
+color:#5b4de6;
+font-size:14px;
+}
+
+.notice{
+margin-top:15px;
+font-size:12px;
+color:#858b98;
+}
+
+section{
+padding:70px 0;
+}
+
+.content{
+max-width:800px;
+}
+
+h2{
+font-size:32px;
+margin-bottom:15px;
+}
+
+h3{
+margin-top:25px;
+margin-bottom:8px;
+}
+
+p{
+color:#596273;
+}
+
+details{
+padding:18px 0;
+border-bottom:1px solid #ddd;
+}
+
+summary{
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+border-top:1px solid #eee;
+padding:35px 0;
+margin-top:30px;
+}
+
+footer a{
+color:#555;
+text-decoration:none;
+margin-right:20px;
+}
+
+@media(max-width:650px){
+
+.input{
+flex-direction:column;
+}
+
+button{
+width:100%;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="container nav">
+
+<a
+href="../"
+class="logo">
+
+Creator<span>Save</span>
+
+</a>
+
+<a
+href="../"
+class="home">
+
+← Home
+
+</a>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="hero">
+
+<div class="container">
+
+<div class="badge">
+CreatorSave Tool
+</div>
+
+<h1>
+Instagram Reel
+<br>
+<span>Downloader</span>
+</h1>
+
+<p class="hero-text">
+
+Paste a public Instagram Reel URL
+to get started with CreatorSave.
+
+</p>
+
+
+<div class="tool">
+
+<h2>
+Paste Instagram Reel URL
+</h2>
+
+<div class="input">
+
+<input
+id="reelUrl"
+type="url"
+placeholder="https://www.instagram.com/reel/..."
+>
+
+<button onclick="processUrl()">
+Continue
+</button>
+
+</div>
+
+<div id="message"></div>
+
+<p class="notice">
+
+Only use content that you have permission
+to save or use. Availability may depend
+on the source platform.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<div class="container content">
+
+<h2>
+Instagram Reel Downloader
+</h2>
+
+<p>
+
+CreatorSave provides a simple interface for
+working with public Instagram Reel URLs.
+
+The tool is designed to be fast, simple and
+mobile-friendly.
+
+</p>
+
+
+<h3>
+How to use the tool
+</h3>
+
+<p>
+
+1. Open the Instagram app or website.
+
+<br>
+
+2. Find the public Reel you are authorized
+to save or use.
+
+<br>
+
+3. Copy its URL.
+
+<br>
+
+4. Paste the URL into the CreatorSave tool.
+
+</p>
+
+
+<h3>
+Important information
+</h3>
+
+<p>
+
+CreatorSave does not claim ownership of
+third-party content. Users are responsible
+for respecting copyright, permissions and
+the applicable platform terms.
+
+</p>
+
+
+<h3>
+Why use CreatorSave?
+</h3>
+
+<p>
+
+Our goal is to build simple and useful tools
+for social media creators without unnecessary
+complexity.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<div class="container content">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<details>
+
+<summary>
+Is this Instagram Reel Downloader free?
+</summary>
+
+<p>
+
+The initial CreatorSave tools are designed
+to be free to use.
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can I download any Reel?
+</summary>
+
+<p>
+
+You should only save or use content that
+you have permission to access, save or use.
+Platform availability can also vary.
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Does CreatorSave store Instagram Reels?
+</summary>
+
+<p>
+
+CreatorSave does not claim ownership or
+permanent hosting of third-party content.
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Does it work on mobile?
+</summary>
+
+<p>
+
+Yes. The page is designed to work on
+mobile phones, tablets and desktop devices.
+
+</p>
+
+</details>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+<div class="container">
+
+<a href="../">
+Home
+</a>
+
+<a href="../about.html">
+About
+</a>
+
+<a href="../privacy.html">
+Privacy
+</a>
+
+<a href="../terms.html">
+Terms
+</a>
+
+<a href="../contact.html">
+Contact
+</a>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+function processUrl(){
+
+const input =
+document.getElementById("reelUrl");
+
+const message =
+document.getElementById("message");
+
+const value =
+input.value.trim();
+
+if(!value){
+
+message.innerText =
+"Please paste an Instagram Reel URL.";
+
+return;
+
+}
+
+try{
+
+const url =
+new URL(value);
+
+const host =
+url.hostname
+.replace(/^www\./,"")
+.toLowerCase();
+
+if(
+host !== "instagram.com" &&
+!host.endsWith(".instagram.com")
+){
+
+message.innerText =
+"Please enter a valid Instagram URL.";
+
+return;
+
+}
+
+if(
+!url.pathname.includes("/reel/")
+){
+
+message.innerText =
+"Please enter an Instagram Reel URL.";
+
+return;
+
+}
+
+message.innerText =
+"URL received. Processing functionality will be connected in the next stage.";
+
+}catch{
+
+message.innerText =
+"Please enter a valid URL.";
+
+}
+
+}
+
+</script>
+
+
+</body>
+
+</html>
