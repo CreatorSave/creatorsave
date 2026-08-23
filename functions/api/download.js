@@ -10,7 +10,16 @@ export async function onRequestPost(context) {
       );
     }
 
-    const parsed = new URL(url);
+    let parsed;
+
+    try {
+      parsed = new URL(url);
+    } catch {
+      return Response.json(
+        { success: false, error: "Invalid URL" },
+        { status: 400 }
+      );
+    }
 
     const hostname = parsed.hostname
       .replace(/^www\./, "")
@@ -21,14 +30,20 @@ export async function onRequestPost(context) {
       !hostname.endsWith(".instagram.com")
     ) {
       return Response.json(
-        { success: false, error: "Please enter an Instagram URL" },
+        {
+          success: false,
+          error: "Please enter an Instagram URL"
+        },
         { status: 400 }
       );
     }
 
     if (!parsed.pathname.includes("/reel/")) {
       return Response.json(
-        { success: false, error: "Please enter an Instagram Reel URL" },
+        {
+          success: false,
+          error: "Please enter an Instagram Reel URL"
+        },
         { status: 400 }
       );
     }
@@ -37,7 +52,10 @@ export async function onRequestPost(context) {
 
     if (!token) {
       return Response.json(
-        { success: false, error: "APIFY_TOKEN is missing" },
+        {
+          success: false,
+          error: "APIFY_TOKEN is missing"
+        },
         { status: 500 }
       );
     }
@@ -48,9 +66,11 @@ export async function onRequestPost(context) {
 
     const response = await fetch(apiUrl, {
       method: "POST",
+
       headers: {
         "Content-Type": "application/json"
       },
+
       body: JSON.stringify({
         url: [parsed.toString()]
       })
@@ -62,8 +82,7 @@ export async function onRequestPost(context) {
       return Response.json(
         {
           success: false,
-          error: "Apify request failed",
-          details: text.slice(0, 500)
+          error: "Apify request failed"
         },
         { status: 502 }
       );
@@ -83,7 +102,9 @@ export async function onRequestPost(context) {
       );
     }
 
-    const item = Array.isArray(results) ? results[0] : null;
+    const item = Array.isArray(results)
+      ? results[0]
+      : null;
 
     if (!item || item.status !== "success") {
       return Response.json(
@@ -99,23 +120,30 @@ export async function onRequestPost(context) {
       ? item.result
       : [];
 
+    /*
+      IMPORTANT:
+      Only return actual video results.
+      Images/thumbnails are ignored.
+    */
+
     const links = result
       .filter(
-        (x) =>
-          x &&
-          x.type === "video" &&
-          typeof x.url === "string"
+        (item) =>
+          item &&
+          item.type === "video" &&
+          typeof item.url === "string"
       )
-      .map((x) => ({
-        url: x.url,
-        quality: x.quality || ""
+      .map((item) => ({
+        url: item.url,
+        type: "video",
+        quality: item.quality || ""
       }));
 
     if (!links.length) {
       return Response.json(
         {
           success: false,
-          error: "No video link found"
+          error: "No video download link found"
         },
         { status: 404 }
       );
@@ -127,6 +155,7 @@ export async function onRequestPost(context) {
     });
 
   } catch (error) {
+
     return Response.json(
       {
         success: false,
@@ -134,5 +163,6 @@ export async function onRequestPost(context) {
       },
       { status: 500 }
     );
+
   }
 }
