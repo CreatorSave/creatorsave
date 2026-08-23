@@ -497,69 +497,49 @@ Contact
 
 <script>
 
-function processUrl(){
+async function processUrl() {
 
-const input =
-document.getElementById("reelUrl");
+  const input = document.getElementById("reelUrl");
+  const message = document.getElementById("message");
 
-const message =
-document.getElementById("message");
+  const value = input.value.trim();
 
-const value =
-input.value.trim();
+  if (!value) {
+    message.innerText = "Please paste an Instagram Reel URL.";
+    return;
+  }
 
-if(!value){
+  message.innerText = "Checking URL...";
 
-message.innerText =
-"Please paste an Instagram Reel URL.";
+  try {
 
-return;
+    const response = await fetch("/api/validate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        url: value
+      })
+    });
 
-}
+    const data = await response.json();
 
-try{
+    if (!response.ok) {
+      message.innerText =
+        data.error || "Unable to validate URL.";
+      return;
+    }
 
-const url =
-new URL(value);
+    message.innerText =
+      "✓ " + data.message;
 
-const host =
-url.hostname
-.replace(/^www\./,"")
-.toLowerCase();
+  } catch (error) {
 
-if(
-host !== "instagram.com" &&
-!host.endsWith(".instagram.com")
-){
+    message.innerText =
+      "Unable to connect to the server.";
 
-message.innerText =
-"Please enter a valid Instagram URL.";
-
-return;
-
-}
-
-if(
-!url.pathname.includes("/reel/")
-){
-
-message.innerText =
-"Please enter an Instagram Reel URL.";
-
-return;
-
-}
-
-message.innerText =
-"URL received. Processing functionality will be connected in the next stage.";
-
-}catch{
-
-message.innerText =
-"Please enter a valid URL.";
-
-}
-
+  }
 }
 
 </script>
