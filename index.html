@@ -786,7 +786,7 @@ async function checkURL() {
 
     message.appendChild(title);
 
-    const link = data.links[0];
+    const link = data.links.find(item => item.type === "video");
 
     if (link && link.url) {
 
