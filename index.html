@@ -739,7 +739,6 @@ All rights reserved.
 </div>
 
 </footer>
-
 <script>
 async function checkURL() {
 
@@ -787,7 +786,9 @@ async function checkURL() {
 
     message.appendChild(title);
 
-    data.links.forEach((link, index) => {
+    const link = data.links[0];
+
+    if (link && link.url) {
 
       const download = document.createElement("a");
 
@@ -795,10 +796,7 @@ async function checkURL() {
       download.target = "_blank";
       download.rel = "noopener noreferrer";
 
-      download.innerText =
-        index === 0
-          ? "⬇️ Download Video"
-          : "⬇️ Download Video " + (index + 1);
+      download.innerText = "⬇️ Download Reel";
 
       download.style.display = "block";
       download.style.marginTop = "10px";
@@ -812,18 +810,12 @@ async function checkURL() {
 
       message.appendChild(download);
 
-    });
+    } else {
 
-    const note = document.createElement("div");
+      message.innerText =
+        "❌ No video download link found.";
 
-    note.innerText =
-      "Download links are temporary. Save the video after opening.";
-
-    note.style.fontSize = "12px";
-    note.style.color = "#777";
-    note.style.marginTop = "12px";
-
-    message.appendChild(note);
+    }
 
   } catch (error) {
 
@@ -838,6 +830,9 @@ async function checkURL() {
   }
 }
 </script>
+  
+
+  
 
 
 </body>
