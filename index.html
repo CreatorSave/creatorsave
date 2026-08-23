@@ -739,77 +739,87 @@ All rights reserved.
 </div>
 
 </footer>
-
-
-
 <script>
+async function checkURL() {
 
-async function checkURL(){
+  const input = document.getElementById("reel");
+  const message = document.getElementById("message");
+  const button = document.querySelector(".input-box button");
 
-const input =
-document.getElementById("reel");
+  const value = input.value.trim();
 
-const message =
-document.getElementById("message");
+  if (!value) {
+    message.innerText = "Please paste an Instagram Reel URL.";
+    return;
+  }
 
-const value =
-input.value.trim();
+  button.disabled = true;
+  button.innerText = "Processing...";
+  message.innerText = "Getting your Reel...";
 
-if(!value){
+  try {
 
-message.innerText =
-"Please paste an Instagram Reel URL.";
+    const response = await fetch("/api/download", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        url: value
+      })
+    });
 
-return;
+    const data = await response.json();
 
+    if (!data.success) {
+      message.innerText = data.error || "Unable to process this Reel.";
+      return;
+    }
+
+    message.innerHTML = "";
+
+    data.links.forEach((link, index) => {
+
+      const download = document.createElement("a");
+
+      download.href = link.url;
+      download.target = "_blank";
+      download.rel = "noopener noreferrer";
+      download.innerText =
+        link.quality
+          ? "Download " + link.quality
+          : "Download Reel " + (index + 1);
+
+      download.style.display = "inline-block";
+      download.style.marginTop = "10px";
+      download.style.marginRight = "10px";
+      download.style.padding = "12px 18px";
+      download.style.background = "#6d5dfc";
+      download.style.color = "#fff";
+      download.style.borderRadius = "10px";
+      download.style.textDecoration = "none";
+      download.style.fontWeight = "bold";
+
+      message.appendChild(download);
+
+    });
+
+  } catch (error) {
+
+    message.innerText =
+      "Something went wrong. Please try again.";
+
+  } finally {
+
+    button.disabled = false;
+    button.innerText = "Continue";
+
+  }
 }
-
-message.innerText =
-"Checking URL...";
-
-try{
-
-const response =
-await fetch("/api/validate",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-url:value
-})
-
-});
-
-const data =
-await response.json();
-
-if(!response.ok){
-
-message.innerText =
-data.error ||
-"Unable to validate URL.";
-
-return;
-
-}
-
-message.innerText =
-"✓ " + data.message;
-
-}catch(error){
-
-message.innerText =
-"Unable to connect to the server.";
-
-}
-
-}
-
 </script>
+
+
+
 
 
 </body>
