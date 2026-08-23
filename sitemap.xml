@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://creatorsave.github.io/creatorsave/</loc>
-  </url>
-
-  <url>
-    <loc>https://creatorsave.github.io/creatorsave/instagram-reel-downloader/</loc>
-  </url>
-
-  <url>
-    <loc>https://creatorsave.github.io/creatorsave/youtube-thumbnail-downloader/</loc>
-  </url>
-
+<url>
+<loc>https://creatorsave.github.io/creatorsave/</loc>
+</url>
+<url>
+<loc>https://creatorsave.github.io/creatorsave/instagram-reel-downloader/</loc>
+</url>
+<url>
+<loc>https://creatorsave.github.io/creatorsave/youtube-thumbnail-downloader/</loc>
+</url>
 </urlset>
